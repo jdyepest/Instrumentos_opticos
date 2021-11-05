@@ -76,26 +76,24 @@ imagen_gris = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
 
 pista = cv2.imread('c_clue.jpg', cv2.IMREAD_UNCHANGED)
 pista_gris = cv2.cvtColor(pista, cv2.COLOR_BGR2GRAY)
-
 pista_gris_padded = paddin(pista_gris, imagen_gris)
 
-tres = cv2.imread('E.png', cv2.IMREAD_UNCHANGED)
-tres_gris = cv2.cvtColor(tres, cv2.COLOR_BGR2GRAY)
+test1 = cv2.imread('E.png', cv2.IMREAD_UNCHANGED)
+test1_gris = cv2.cvtColor(test1, cv2.COLOR_BGR2GRAY)
 
 
-let = cv2.imread('letters.jpg', cv2.IMREAD_UNCHANGED)
-let_gris = cv2.cvtColor(let, cv2.COLOR_BGR2GRAY)
+test2 = cv2.imread('letters.jpg', cv2.IMREAD_UNCHANGED)
+test2_gris = cv2.cvtColor(test2, cv2.COLOR_BGR2GRAY)
 
-tres_gris = paddin(tres_gris, let_gris)
 
 fft_pista = transformada_fourier(pista_gris_padded)
 fft_imagen = transformada_fourier(imagen_gris)
-ftt_tres = transformada_fourier(tres_gris)
-fft_let = transformada_fourier(let_gris)
+fft_test1 = transformada_fourier(test1_gris)
+fft_test2 = transformada_fourier(test2_gris)
 
 
 #TF = (fft_imagen * fft_pista)
 #ITF = transformada_fourier_inversa(TF)
-graficar_modulo_cuadrado (fft_pista)
+#graficar_modulo_cuadrado (fft_pista)
 
-#plot_func(pista_gris,modulo_cuadrado_log(ITF))
+plot_func(imagen_gris,modulo_cuadrado_log(fft_imagen))
